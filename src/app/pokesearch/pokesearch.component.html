@@ -1,0 +1,18 @@
+<div style="text-align:center">
+  <h1>
+    id du pokemon recherché: {{ searchedId }}
+  </h1>
+</div>
+<input type="text" [(ngModel)]="searchedId" placeholder="id du pokemon à chercher"/><br>
+id recherché: <input [readOnly]="true" type="text" [(ngModel)]="searchedId" placeholder="aucun id trouvé"/>
+
+<br>
+<!--<input [(ngModel)]="id"/>-->
+<!--<input readonly value="{{id}}" />-->
+choisir un pokemon: <select [id]="selectedpoke" (change)="selectChangeHandler($event)">
+  <option *ngFor="let poke of pokemons | filterPokemonPip:id" value="{{poke.id}}">
+    {{poke.id }}. {{poke.name}}
+  </option>
+</select>
+<br>
+<button (click)="toConsole()">OK</button>
